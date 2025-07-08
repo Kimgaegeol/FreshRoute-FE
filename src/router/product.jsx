@@ -13,6 +13,10 @@ function productRouter() {
             Component: ProductIndexPage,
             children: [
                 {
+                    path: "",
+                    element: <Navigate to={'/product/list'}/>
+                },
+                {
                     path: ":pno",
                     element: <Suspense><ProductDetailPage/></Suspense>
                 },

@@ -1,6 +1,10 @@
+import { Outlet } from "react-router";
+
 function ProductIndexPage() {
     return ( 
-        <div></div>
+        <div>
+            <Outlet/>
+        </div>
      );
 }
 

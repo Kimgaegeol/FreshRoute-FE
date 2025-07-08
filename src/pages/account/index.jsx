@@ -1,6 +1,10 @@
+import { Outlet } from "react-router";
+
 function AccountIndexPage() {
     return ( 
-        <div></div>
+        <div>
+            <Outlet/>
+        </div>
      );
 }
 

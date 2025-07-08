@@ -1,4 +1,6 @@
 import { lazy, Suspense } from "react";
+import { Navigate } from "react-router";
+
 import AccountIndexPage from "../pages/account";
 
 const SigninPage = lazy(() => import("../pages/account/signin"))
@@ -13,6 +15,10 @@ function accountRouter() {
             path: "/account",
             Component: AccountIndexPage,
             children: [
+                {
+                    path: "",
+                    element: <Navigate to={'/account/signin'}/>
+                },
                 {
                     path: "signin",
                     element: <Suspense><SigninPage/></Suspense>
