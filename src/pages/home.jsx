@@ -4,7 +4,6 @@ function HomePage() {
     return ( 
         <div>
             <MainLayout/>
-            <div>HomePage</div>
         </div>
      );
 }

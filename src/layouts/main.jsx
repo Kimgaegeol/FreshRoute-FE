@@ -1,7 +1,13 @@
+import Header from '../components/mainLayout/header';
+import Nav from '../components/mainLayout/nav';
+import Footer from '../components/mainLayout/footer';
+
 function MainLayout() {
     return ( 
         <div>
-            <div>으ㅏ아아아아아</div>
+            <Header />
+            <Nav />
+            <Footer />
         </div>
      );
 }
