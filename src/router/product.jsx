@@ -14,19 +14,19 @@ function productRouter() {
             children: [
                 {
                     path: ":pno",
-                    elment: <Suspense><ProductDetailPage/></Suspense>
+                    element: <Suspense><ProductDetailPage/></Suspense>
                 },
                 {
                     path: "list",
-                    elment: <Suspense><ProductListPage/></Suspense>
+                    element: <Suspense><ProductListPage/></Suspense>
                 },
                 {
                     path: "pay",
-                    elment: <Suspense><PayPage/></Suspense>
+                    element: <Suspense><PayPage/></Suspense>
                 },
                 {
                     path: "sale",
-                    elment: <Suspense><SalePage/></Suspense>
+                    element: <Suspense><SalePage/></Suspense>
                 }
             ]
         }
