@@ -1,6 +1,11 @@
+import MainLayout from '../../layouts/main'
+
 function SigninPage() {
     return ( 
-        <div></div>
+        <div>
+            <MainLayout>
+            </MainLayout>
+        </div>
      );
 }
 
