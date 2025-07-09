@@ -4,10 +4,10 @@ import { Navigate } from "react-router";
 import FarmerMyIndexPage from "../../pages/my/farmer";
 
 const FarmerInquiryDetailPage = lazy(() => import("../../pages/my/farmer/inquiry/detail"))
-const FarmerInquiryListPage = lazy(() => import("../../pages/my/farmer/inquiry/detail"))
-const FarmerInfoPage = lazy(() => import("../../pages/my/farmer/inquiry/detail"))
-const FarmerOrderListPage = lazy(() => import("../../pages/my/farmer/inquiry/detail"))
-const FarmerSaleListPage = lazy(() => import("../../pages/my/farmer/inquiry/detail"))
+const FarmerInquiryListPage = lazy(() => import("../../pages/my/farmer/inquiry/list"))
+const FarmerInfoPage = lazy(() => import("../../pages/my/farmer/info"))
+const FarmerOrderListPage = lazy(() => import("../../pages/my/farmer/orderlist"))
+const FarmerSaleListPage = lazy(() => import("../../pages/my/farmer/salelist"))
 
 function farmerMyRouter() {
     return ( 
@@ -21,23 +21,23 @@ function farmerMyRouter() {
                 },
                 {
                     path: "info",
-                    elment: <Suspense><FarmerInfoPage/></Suspense>
+                    element: <Suspense><FarmerInfoPage/></Suspense>
                 },
                                 {
                     path: "orderlist",
-                    elment: <Suspense><FarmerOrderListPage/></Suspense>
+                    element: <Suspense><FarmerOrderListPage/></Suspense>
                 },
                                 {
                     path: "salelist",
-                    elment: <Suspense><FarmerSaleListPage/></Suspense>
+                    element: <Suspense><FarmerSaleListPage/></Suspense>
                 },
                                 {
                     path: "inquiry/list",
-                    elment: <Suspense><FarmerInquiryListPage/></Suspense>
+                    element: <Suspense><FarmerInquiryListPage/></Suspense>
                 },
                                 {
                     path: "inquiry/:ino",
-                    elment: <Suspense><FarmerInquiryDetailPage/></Suspense>
+                    element: <Suspense><FarmerInquiryDetailPage/></Suspense>
                 }
             ]
         }

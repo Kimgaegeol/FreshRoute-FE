@@ -5,7 +5,7 @@ import ConsumerMyIndexPage from "../../pages/my/consumer";
 
 const ConsumerInfoPage = lazy(() => import("../../pages/my/consumer/info"))
 const ConsumerReviewPage = lazy(() => import("../../pages/my/consumer/review"))
-const ConsumerBuyDetailage = lazy(() => import("../../pages/my/consumer/buy/detail"))
+const ConsumerBuyDetailPage = lazy(() => import("../../pages/my/consumer/buy/detail"))
 const ConsumerBuyInquiryWritePage = lazy(() => import("../../pages/my/consumer/buy/inquiryWrite"))
 const ConsumerBuyListPage = lazy(() => import("../../pages/my/consumer/buy/list"))
 const ConsumerBuyReviewWritePage = lazy(() => import("../../pages/my/consumer/buy/reviewWrite"))
@@ -32,7 +32,7 @@ function consumerMyRouter() {
                 },
                 {
                     path: "buy/:pno",
-                    element: <Suspense><ConsumerBuyDetailage/></Suspense>
+                    element: <Suspense><ConsumerBuyDetailPage/></Suspense>
                 },
                 {
                     path: "buy/inquiry-write",
