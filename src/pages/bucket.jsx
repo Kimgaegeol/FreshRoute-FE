@@ -1,6 +1,13 @@
+import MainLayout from "../layouts/main";
+import { Outlet } from "react-router";
+
 function BucketPage() {
     return ( 
-        <div></div>
+        <div>
+            <MainLayout>
+                <Outlet/>
+            </MainLayout>
+        </div>
      );
 }
 

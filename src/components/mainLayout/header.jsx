@@ -13,11 +13,9 @@ function Header() {
                 <div><NavLink to={'/account/signup/consumer'}>소비자 회원가입</NavLink> </div>
                 <div className="h-5 border-l bg-white"></div>
                 <div><NavLink to={'/account/signup/farmer'}>농가 회원가입</NavLink> </div>
-                <div className="h-5 border-l bg-white"></div>
-                <div><NavLink to={'/mypage'}>마이페이지</NavLink> </div>
             </div>
 
-            {/* 하단 로고 + 검색창 부분 */}
+            {/* 하단 로고 부분 */}
             <div className="w-full h-20 flex justify-center items-center px-10">
                 <img src="/FreshRouterLogo.png" alt="FreshRouter logo" className="h-14"/>
             </div>

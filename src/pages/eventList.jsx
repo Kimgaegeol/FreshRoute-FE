@@ -1,6 +1,13 @@
+import MainLayout from "../layouts/main";
+import { Outlet } from "react-router";
+
 function EventListPage() {
     return ( 
-        <div></div>
+        <div>
+            <MainLayout>
+                <Outlet/>
+            </MainLayout>
+        </div>
      );
 }
 

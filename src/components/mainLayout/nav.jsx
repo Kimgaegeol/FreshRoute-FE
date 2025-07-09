@@ -17,7 +17,7 @@ function Nav() {
                 <div className="flex gap-20 pl-20 py-4">
                     <NavLink to={'/'} className="text-lg font-bold whitespace-nowrap">홈</NavLink>
                     <NavLink to={'/product'} className="text-lg font-bold whitespace-nowrap">전체 농산물</NavLink>
-                    <NavLink to={''} className="text-lg font-bold whitespace-nowrap">이벤트 기획전</NavLink>
+                    <NavLink to={'/eventlist'} className="text-lg font-bold whitespace-nowrap">이벤트 기획전</NavLink>
                     {/* 테스트용 버튼 */}
                     <button onClick={() => signIn("consumer", "consumer")}>소비자로그인</button>
                     <button onClick={() => signIn("farmer", "farmer")}>농가로그인</button>
@@ -36,18 +36,18 @@ function Nav() {
                     {/* 농가일 때 */}
                     <NavLink to={'/'} className="text-lg font-bold whitespace-nowrap">홈</NavLink>
                     <NavLink to={'/product'} className="text-lg font-bold whitespace-nowrap">전체 농산물</NavLink>
-                    <NavLink to={''} className="text-lg font-bold whitespace-nowrap">이벤트 기획전</NavLink>
-                    <NavLink to={''} className="text-lg font-bold whitespace-nowrap">상품등록</NavLink>
-                    <NavLink to={''} className="text-lg font-bold whitespace-nowrap">마이페이지</NavLink>
+                    <NavLink to={'/eventlist'} className="text-lg font-bold whitespace-nowrap">이벤트 기획전</NavLink>
+                    <NavLink to={'/product/sale'} className="text-lg font-bold whitespace-nowrap">상품등록</NavLink>
+                    <NavLink to={'/my/farmer'} className="text-lg font-bold whitespace-nowrap">마이페이지</NavLink>
                     </>
                 ) : (
                     <>
                     {/* 소비자일 때 */}
                     <NavLink to={'/'} className="text-lg font-bold whitespace-nowrap">홈</NavLink>
                     <NavLink to={'/product'} className="text-lg font-bold whitespace-nowrap">전체 농산물</NavLink>
-                    <NavLink to={''} className="text-lg font-bold whitespace-nowrap">이벤트 기획전</NavLink>
-                    <NavLink to={''} className="text-lg font-bold whitespace-nowrap">장바구니</NavLink>
-                    <NavLink to={''} className="text-lg font-bold whitespace-nowrapㄴ">마이페이지</NavLink>
+                    <NavLink to={'/eventlist'} className="text-lg font-bold whitespace-nowrap">이벤트 기획전</NavLink>
+                    <NavLink to={'/bucket'} className="text-lg font-bold whitespace-nowrap">장바구니</NavLink>
+                    <NavLink to={'/my/consumer'} className="text-lg font-bold whitespace-nowrap">마이페이지</NavLink>
                     </>
                 )}
                 {/* 테스트용 버튼 */}

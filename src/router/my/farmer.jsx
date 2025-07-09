@@ -12,7 +12,7 @@ const FarmerSaleListPage = lazy(() => import("../../pages/my/farmer/inquiry/deta
 function farmerMyRouter() {
     return ( 
         {
-            path: "my/farmer",
+            path: "/my/farmer",
             Component: FarmerMyIndexPage,
             children: [
                 {
