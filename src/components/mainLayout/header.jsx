@@ -13,9 +13,9 @@ function Header() {
             </div>
 
             {/* 하단 로고 부분 */}
-            <div className="w-full h-20 flex justify-center items-center px-10">
+            <NavLink to={'/'} className="w-full h-20 flex justify-center items-center px-10">
                 <img src="/FreshRouterLogo.png" alt="FreshRouter logo" className="h-14"/>
-            </div>
+            </NavLink>
         </div>
     );
 }
