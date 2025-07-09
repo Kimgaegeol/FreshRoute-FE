@@ -1,6 +1,13 @@
+import { Outlet } from "react-router";
+import MainLayout from "../../../layouts/main";
+
 function ConsumerMyIndexPage() {
     return ( 
-        <div></div>
+        <div>
+            <MainLayout>
+                <Outlet/>
+            </MainLayout>
+        </div>
      );
 }
 
