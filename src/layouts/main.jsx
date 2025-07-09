@@ -2,11 +2,14 @@ import Header from '../components/mainLayout/header';
 import Nav from '../components/mainLayout/nav';
 import Footer from '../components/mainLayout/footer';
 
-function MainLayout() {
+function MainLayout({ children }) {
     return ( 
         <div>
             <Header />
             <Nav />
+            <main className='container mx-auto pt-7 pb-20 '>
+                {children}
+            </main>
             <Footer />
         </div>
      );
