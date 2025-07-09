@@ -16,12 +16,12 @@ function accountRouter() {
             Component: AccountIndexPage,
             children: [
                 {
-                    path: "",
-                    element: <Navigate to={'/account/signin'}/>
-                },
-                {
                     path: "signin",
                     element: <Suspense><SigninPage/></Suspense>
+                },
+                {
+                    path: "",
+                    element: <Navigate to={'/account/signin'}/>
                 },
                 {
                     path: "signup/consumer",

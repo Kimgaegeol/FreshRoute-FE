@@ -1,4 +1,6 @@
 import { NavLink } from "react-router";
+import { Navigate } from "react-router";
+
 import { IoSearch } from "react-icons/io5";
 
 function Header() {

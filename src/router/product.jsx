@@ -16,7 +16,7 @@ function productRouter() {
             children: [
                 {
                     path: "",
-                    element: <Navigate to={'/product/list'}/>
+                    element: <Navigate to={'/product/list'}></Navigate>
                 },
                 {
                     path: ":pno",

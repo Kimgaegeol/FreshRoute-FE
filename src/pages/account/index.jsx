@@ -1,9 +1,12 @@
 import { Outlet } from "react-router";
+import MainLayout from "../../layouts/main";
 
 function AccountIndexPage() {
     return ( 
         <div>
-            <Outlet/>
+            <MainLayout>
+                <Outlet/>
+            </MainLayout>
         </div>
      );
 }
