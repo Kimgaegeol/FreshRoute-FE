@@ -1,4 +1,3 @@
-import MainLayout from '../../layouts/main'
 import SignInput from '../../components/signInput'
 import SignButton from '../../components/signButton'
 import { useState } from "react"
@@ -31,7 +30,7 @@ function SigninPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     />
-                <SignButton />
+                <SignButton>로그인</SignButton>
             </form>
         </div>
      );
