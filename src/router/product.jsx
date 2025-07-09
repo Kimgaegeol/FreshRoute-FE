@@ -1,4 +1,6 @@
 import { lazy, Suspense } from "react";
+import { Navigate } from "react-router";
+
 import ProductIndexPage from "../pages/product";
 
 const ProductDetailPage = lazy(() => import("../pages/product/detail"))
