@@ -1,6 +1,6 @@
 // id, pw, name, email, phone, farm_name, farm_address
-import SignInput from '../../../components/signInput'
-import SignButton from '../../../components/signButton'
+import SignInput from '../../../sign/components/signInput'
+import SignButton from '../../../sign/components/signButton'
 import { useState } from "react"
 
 function FarmerSignupPage() {

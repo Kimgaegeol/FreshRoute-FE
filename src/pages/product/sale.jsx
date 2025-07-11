@@ -29,7 +29,7 @@ function SalePage() {
                     <thead>
                         <tr>
                             <th className="border border-black px-10 py-10 whitespace-nowrap bg-primary-400">사진등록</th>
-                            <td className="flex items-end border border-black px-10 py-10 whitespace-nowrap">
+                            <td className="flex items-end px-10 py-10 whitespace-nowrap">
                                 <div className="w-48 h-32 bg-gray-100 rounded-sm border flex justify-center items-center">
                                     {previewImage ? (
                                         <img
@@ -52,7 +52,7 @@ function SalePage() {
                         <tr>
                             <th className="border border-black px-10 py-6 whitespace-nowrap bg-primary-400">상품명</th>
                             <td className="border border-black pl-4 pr-10 py-6 whitespace-nowrap">
-                                <input type="text" placeholder="상품명을 입력하세요" className="border px-2 py-3 w-72 focus:placeholder-transparent"></input>
+                                <input type="text" placeholder="상품명을 입력하세요" className="border px-2 py-3 w-72 placeholder-black  focus:placeholder-transparent"></input>
                                 <span className="text-xs ml-2">※ 2자~30자까지 입력 가능하며, 슬래시(/), 쉼표(,), 마침표(.), 언더바(_), 곱하기(*) 이외의 특수문자 사용 불가</span>
                             </td>
                         </tr>
@@ -87,7 +87,7 @@ function SalePage() {
                         <tr>
                             <th className="border border-black px-10 py-6 whitespace-nowrap bg-primary-400">유통기한</th>
                             <td className="border border-black pl-4 pr-10 py-6 whitespace-nowrap">
-                                <select className="border px-2 py-3 w-20">
+                                <select className="border px-2 py-3 w-24">
                                     <option value="" disabled>년도</option>
                                     <option value="2025">2025년</option>
                                     <option value="2026">2026년</option>

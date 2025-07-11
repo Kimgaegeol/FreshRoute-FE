@@ -7,7 +7,7 @@ function MainLayout({ children }) {
         <div>
             <Header />
             <Nav />
-            <main className='container mx-auto pt-10 pb-20 px-14'>
+            <main className='container mx-auto pt-6 pb-20 px-14'>
                 {children}
             </main>
             <Footer />
