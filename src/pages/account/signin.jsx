@@ -23,11 +23,8 @@ function SigninPage() {
         try {
             const user = await signInEvent({ id, pw: password });
             console.log("로그인 성공:", user);
-            
-            // 로그인 성공 시 처리 (예: 메인 페이지로 이동)
-            // navigate('/main') 또는 window.location.href = '/main'
             alert("로그인 성공!");
-            
+            navigate('/');
         } catch (error) {
             console.error("로그인 실패:", error.message);
             alert(error.message);
@@ -36,14 +33,11 @@ function SigninPage() {
         }
     }
 
-    const handleClick = () => {
-        navigate('/');
-    }
-
     return ( 
         <div>
             <form onSubmit={handleSubmit} className='flex flex-col items-center'>
                 <h1 className='text-2xl font-bold pb-5'>login</h1>
+
                 <SignInput 
                     placeholder="아이디를 입력하세요."
                     type="text"
@@ -52,24 +46,26 @@ function SigninPage() {
                     required
                     disabled={isLoading}
                 />
+
                 <SignInput 
                     placeholder="비밀번호를 입력하세요."
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    />
-                <SignButton
-                    onClick={handleClick}
-                >로그인</SignButton>
                     disabled={isLoading}
                 />
-                <SignButton disabled={isLoading}>
+
+                {/* 중복된 버튼 제거하고 하나만 남김 */}
+                <SignButton 
+                    type="submit"
+                    disabled={isLoading}
+                >
                     {isLoading ? "로그인 중..." : "로그인"}
                 </SignButton>
             </form>
         </div>
-     );
+    );
 }
 
 export default SigninPage;

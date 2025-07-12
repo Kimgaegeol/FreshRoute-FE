@@ -18,7 +18,6 @@ function FarmerSignupPage() {
     // 버튼 이동
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
@@ -39,12 +38,11 @@ function FarmerSignupPage() {
                 farm_name: farmName, 
                 farm_address: farmAddress 
             });
-            console.log("농가 회원가입 성공:", account);
             
             // 회원가입 성공 시 처리 (예: 로그인 페이지로 이동)
             // navigate('/signin') 또는 window.location.href = '/signin'
             alert("농가 회원가입 성공!");
-            
+            navigate('/account/signin');
         } catch (error) {
             console.error("농가 회원가입 실패:", error.message);
             alert(error.message);
@@ -53,9 +51,7 @@ function FarmerSignupPage() {
         }
     }
 
-    const handleClick = () => {
-        navigate('/account/signin');
-    }
+
 
     return ( 
         <div>
@@ -118,13 +114,8 @@ function FarmerSignupPage() {
                     required
                     />
                 <SignButton
-                    handleClick={handleClick}
                 >회원가입</SignButton>
-                    disabled={isLoading}
-                />
-                <SignButton disabled={isLoading}>
-                    {isLoading ? "회원가입 중..." : "회원가입"}
-                </SignButton>
+
             </form>
         </div>
      );
