@@ -2,13 +2,18 @@
 import SignInput from '../../../components/sign/signInput'
 import SignButton from '../../../components/sign/signButton'
 import { useState } from "react"
+import { useNavigate } from 'react-router';
 
 function ConsumerSignupPage() {
+    // 회원가입
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [number, setNumber] = useState("");
+
+    // 버튼 이동
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,6 +22,10 @@ function ConsumerSignupPage() {
         console.log("이름", name);
         console.log("이메일", email);
         console.log("전화번호", number);
+    }
+
+    const handleClick = () => {
+        navigate('/account/signin');
     }
 
     return ( 
@@ -58,7 +67,9 @@ function ConsumerSignupPage() {
                     onChange={(e) => setNumber(e.target.value)}
                     required
                     />
-                <SignButton>회원가입</SignButton>
+                <SignButton
+                    onClick={handleClick}    
+                >회원가입</SignButton>
             </form>
         </div>
      );

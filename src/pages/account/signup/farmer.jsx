@@ -2,8 +2,10 @@
 import SignInput from '../../../components/sign/signInput'
 import SignButton from '../../../components/sign/signButton'
 import { useState } from "react"
+import { useNavigate } from 'react-router';
 
 function FarmerSignupPage() {
+    // 회원가입
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
@@ -11,6 +13,9 @@ function FarmerSignupPage() {
     const [number, setNumber] = useState("");
     const [farmName, setFarmName] = useState("");
     const [farmAddress, setFarmAddress] = useState("");
+
+    // 버튼 이동
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,6 +26,10 @@ function FarmerSignupPage() {
         console.log("전화번호", number);
         console.log("농가명", farmName);
         console.log("농가주소", farmAddress);
+    }
+
+    const handleClick = () => {
+        navigate('/account/signin');
     }
 
     return ( 
@@ -77,7 +86,9 @@ function FarmerSignupPage() {
                     onChange={(e) => setFarmAddress(e.target.value)}
                     required
                     />
-                <SignButton>회원가입</SignButton>
+                <SignButton
+                    handleClick={handleClick}
+                >회원가입</SignButton>
             </form>
         </div>
      );

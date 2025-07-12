@@ -1,16 +1,23 @@
 import SignInput from '../../components/sign/signInput'
 import SignButton from '../../components/sign/signButton'
 import { useState } from "react"
+import { useNavigate } from 'react-router';
 
 function SigninPage() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("아이디", id);
         console.log("비밀번호", password)
     }
+
+    const handleClick = () => {
+        navigate('/');
+    }
+
     return ( 
         <div>
             <form onSubmit={handleSubmit} className='flex flex-col items-center'>
@@ -30,7 +37,9 @@ function SigninPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     />
-                <SignButton>로그인</SignButton>
+                <SignButton
+                    onClick={handleClick}
+                >로그인</SignButton>
             </form>
         </div>
      );
