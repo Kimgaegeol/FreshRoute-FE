@@ -1,9 +1,11 @@
 import SignInput from '../../../components/sign/signInput'
 import SignButton from '../../../components/sign/signButton'
 import { useState } from "react"
+import { useNavigate } from 'react-router';
 import { signUpConsumerEvent } from '../../../apis/account'
 
 function ConsumerSignupPage() {
+    // 회원가입
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
@@ -11,6 +13,10 @@ function ConsumerSignupPage() {
     const [number, setNumber] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
+    // 버튼 이동
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("▶ handleSubmit 호출", { id, email });
@@ -41,6 +47,10 @@ function ConsumerSignupPage() {
         } finally {
             setIsLoading(false);
         }
+    }
+
+    const handleClick = () => {
+        navigate('/account/signin');
     }
 
     return ( 
@@ -85,6 +95,10 @@ function ConsumerSignupPage() {
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                     required
+                    />
+                <SignButton
+                    onClick={handleClick}    
+                >회원가입</SignButton>
                     disabled={isLoading}
                 />
                 <SignButton disabled={isLoading}>

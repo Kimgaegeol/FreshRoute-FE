@@ -1,11 +1,13 @@
 import SignInput from '../../components/sign/signInput'
 import SignButton from '../../components/sign/signButton'
 import { useState } from "react"
+import { useNavigate } from 'react-router';
 import { signInEvent } from '../../apis/account'
 
 function SigninPage() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e) => {
@@ -34,6 +36,10 @@ function SigninPage() {
         }
     }
 
+    const handleClick = () => {
+        navigate('/');
+    }
+
     return ( 
         <div>
             <form onSubmit={handleSubmit} className='flex flex-col items-center'>
@@ -52,6 +58,10 @@ function SigninPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    />
+                <SignButton
+                    onClick={handleClick}
+                >로그인</SignButton>
                     disabled={isLoading}
                 />
                 <SignButton disabled={isLoading}>
