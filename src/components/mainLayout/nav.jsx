@@ -34,7 +34,6 @@ function Nav() {
                 {isFarmer ? (
                     <>
                     {/* 농가일 때 */}
-                    <NavLink to={'/'} className="text-lg font-bold whitespace-nowrap">홈</NavLink>
                     <NavLink to={'/product'} className="text-lg font-bold whitespace-nowrap">전체 농산물</NavLink>
                     <NavLink to={'/eventlist'} className="text-lg font-bold whitespace-nowrap">이벤트 기획전</NavLink>
                     <NavLink to={'/product/sale'} className="text-lg font-bold whitespace-nowrap">상품등록</NavLink>
