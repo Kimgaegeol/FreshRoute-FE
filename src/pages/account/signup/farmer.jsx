@@ -1,8 +1,8 @@
-// id, pw, name, email, phone, farm_name, farm_address
 import SignInput from '../../../components/sign/signInput'
 import SignButton from '../../../components/sign/signButton'
 import { useState } from "react"
 import { useNavigate } from 'react-router';
+import { signUpFarmerEvent } from '../../../apis/account'
 
 function FarmerSignupPage() {
     // 회원가입
@@ -13,19 +13,44 @@ function FarmerSignupPage() {
     const [number, setNumber] = useState("");
     const [farmName, setFarmName] = useState("");
     const [farmAddress, setFarmAddress] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     // 버튼 이동
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("아이디", id);
-        console.log("비밀번호", password);
-        console.log("이름", name);
-        console.log("이메일", email);
-        console.log("전화번호", number);
-        console.log("농가명", farmName);
-        console.log("농가주소", farmAddress);
+        
+        if (!id || !password || !name || !email || !number || !farmName || !farmAddress) {
+            alert("모든 필드를 입력해주세요.");
+            return;
+        }
+
+        setIsLoading(true);
+        
+        try {
+            const account = await signUpFarmerEvent({ 
+                id, 
+                pw: password, 
+                name, 
+                email, 
+                phone: number, 
+                farm_name: farmName, 
+                farm_address: farmAddress 
+            });
+            console.log("농가 회원가입 성공:", account);
+            
+            // 회원가입 성공 시 처리 (예: 로그인 페이지로 이동)
+            // navigate('/signin') 또는 window.location.href = '/signin'
+            alert("농가 회원가입 성공!");
+            
+        } catch (error) {
+            console.error("농가 회원가입 실패:", error.message);
+            alert(error.message);
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     const handleClick = () => {
@@ -42,35 +67,40 @@ function FarmerSignupPage() {
                     value={id}
                     onChange={(e) => setId(e.target.value)}
                     required
-                    />
+                    disabled={isLoading}
+                />
                 <SignInput 
                     placeholder="비밀번호를 입력하세요."
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    />
+                    disabled={isLoading}
+                />
                 <SignInput 
                     placeholder="이름을 입력하세요."
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
-                    />
+                    disabled={isLoading}
+                />
                 <SignInput 
                     placeholder="이메일을 입력하세요."
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    />
+                    disabled={isLoading}
+                />
                 <SignInput 
                     placeholder="전화번호를 입력하세요."
                     type="text"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                     required
-                    />
+                    disabled={isLoading}
+                />
                 <p className='font-bold p-3'>농가 정보</p>
                 <SignInput 
                     placeholder="농가명을 입력하세요."
@@ -78,7 +108,8 @@ function FarmerSignupPage() {
                     value={farmName}
                     onChange={(e) => setFarmName(e.target.value)}
                     required
-                    />
+                    disabled={isLoading}
+                />
                 <SignInput 
                     placeholder="농가주소를 입력하세요."
                     type="text"
@@ -89,6 +120,11 @@ function FarmerSignupPage() {
                 <SignButton
                     handleClick={handleClick}
                 >회원가입</SignButton>
+                    disabled={isLoading}
+                />
+                <SignButton disabled={isLoading}>
+                    {isLoading ? "회원가입 중..." : "회원가입"}
+                </SignButton>
             </form>
         </div>
      );
