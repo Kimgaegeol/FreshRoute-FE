@@ -26,10 +26,10 @@ function SalePage() {
             <div className="flex flex-col items-center">
                 <h1 className='text-2xl font-bold m-10'>상품등록</h1>
                 <table className="border-collapse border border-black">
-                    <thead>
+                    <tbody>
                         <tr>
-                            <th className="border border-black px-10 py-10 whitespace-nowrap bg-primary-400">사진등록</th>
-                            <td className="flex items-end px-10 py-10 whitespace-nowrap">
+                            <th className="border border-black p-10 whitespace-nowrap bg-primary-400">사진등록</th>
+                            <td className="flex items-end p-10 whitespace-nowrap">
                                 <div className="w-48 h-32 bg-gray-100 rounded-sm border flex justify-center items-center">
                                     {previewImage ? (
                                         <img
@@ -51,14 +51,14 @@ function SalePage() {
                         </tr>
                         <tr>
                             <th className="border border-black px-10 py-6 whitespace-nowrap bg-primary-400">상품명</th>
-                            <td className="border border-black pl-4 pr-10 py-6 whitespace-nowrap">
+                            <td className="border border-black pl-4 px-10 py-6 whitespace-nowrap">
                                 <input type="text" placeholder="상품명을 입력하세요" className="border px-2 py-3 w-72 placeholder-black  focus:placeholder-transparent"></input>
                                 <span className="text-xs ml-2">※ 2자~30자까지 입력 가능하며, 슬래시(/), 쉼표(,), 마침표(.), 언더바(_), 곱하기(*) 이외의 특수문자 사용 불가</span>
                             </td>
                         </tr>
                         <tr>
                             <th className="border border-black px-10 py-6 whitespace-nowrap bg-primary-400">카테고리</th>
-                            <td className="border border-black pl-4 pr-10 py-6 whitespace-nowrap">
+                            <td className="border border-black pl-4 px-10 py-6 whitespace-nowrap">
                                 <select className="border px-2 py-3 w-72">
                                     <option value="" disabled>카테고리 선택</option>
                                     <option value="rice/grain">쌀/잡곡</option>
@@ -72,21 +72,21 @@ function SalePage() {
                         </tr>
                         <tr>
                             <th className="border border-black px-10 py-6 whitespace-nowrap bg-primary-400">상품설명</th>
-                            <td className="border border-black pl-4 pr-10 py-6 whitespace-nowrap">
+                            <td className="border border-black pl-4 px-10 py-6 whitespace-nowrap">
                                 <textarea type="text" className="border px-2 py-1 w-full h-96 resize-none">
                                 </textarea>
                             </td>
                         </tr>
                         <tr>
                             <th className="border border-black px-10 py-6 whitespace-nowrap bg-primary-400">무게</th>
-                            <td className="border border-black pl-4 pr-10 py-6 whitespace-nowrap">
+                            <td className="border border-black pl-4 px-10 py-6 whitespace-nowrap">
                                 <input type="text" placeholder="무게" className="border px-2 py-3 w-20 focus:placeholder-transparent"></input>
                                 <span className="text-gray-400 ml-3">(g)</span>
                             </td>
                         </tr>
                         <tr>
                             <th className="border border-black px-10 py-6 whitespace-nowrap bg-primary-400">유통기한</th>
-                            <td className="border border-black pl-4 pr-10 py-6 whitespace-nowrap">
+                            <td className="border border-black pl-4 px-10 py-6 whitespace-nowrap">
                                 <select className="border px-2 py-3 w-24">
                                     <option value="" disabled>년도</option>
                                     <option value="2025">2025년</option>
@@ -116,7 +116,7 @@ function SalePage() {
                                 <input type="text" placeholder="일" className="border px-2 py-3 w-20 placeholder-black focus:placeholder-transparent"></input>
                             </td>
                         </tr>
-                    </thead>
+                    </tbody>
                 </table>
                 <button 
                     className="w-96 h-12 mt-5 rounded-lg font-bold border-2 border-black"
