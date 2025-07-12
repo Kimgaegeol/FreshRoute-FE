@@ -1,5 +1,5 @@
-import SignInput from '../../sign/components/signInput'
-import SignButton from '../../sign/components/signButton'
+import SignInput from '../../components/sign/signInput'
+import SignButton from '../../components/sign/signButton'
 import { useState } from "react"
 
 function SigninPage() {
