@@ -1,7 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getCategoriesEvent } from '../../apis/production'
+import { createProductEvent } from '../../apis/sale'
 
 function SalePage() {
     const [previewImage, setPreviewImage] = useState(null);
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // 컴포넌트 마운트 시 카테고리 목록 가져오기
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                setLoading(true);
+                const categoryData = await getCategoriesEvent();
+                setCategories(categoryData);
+                setError(null);
+            } catch (err) {
+                console.error("카테고리 조회 실패:", err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCategories();
+    }, []);
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -60,13 +84,18 @@ function SalePage() {
                             <th className="border border-black px-10 py-6 whitespace-nowrap bg-primary-400">카테고리</th>
                             <td className="border border-black pl-4 px-10 py-6 whitespace-nowrap">
                                 <select className="border px-2 py-3 w-72">
-                                    <option value="" disabled>카테고리 선택</option>
-                                    <option value="rice/grain">쌀/잡곡</option>
-                                    <option value="fruits">과일류</option>
-                                    <option value="vegetables">채소류</option>
-                                    <option value="livestock/fisheries">축산물</option>
-                                    <option value="honey/red ginseng">꿀/홍삼</option>
-                                    <option value="etc">기타</option>
+                                    <option value="" disabled selected>
+                                        {loading ? "카테고리 로딩 중..." : "카테고리 선택"}
+                                    </option>
+                                    {error ? (
+                                        <option value="" disabled>카테고리 로딩 실패</option>
+                                    ) : (
+                                        categories.map((category) => (
+                                            <option key={category.category_idx} value={category.category_idx}>
+                                                {category.category_name}
+                                            </option>
+                                        ))
+                                    )}
                                 </select>
                             </td>
                         </tr>
@@ -127,5 +156,3 @@ function SalePage() {
 }
 
 export default SalePage;
-
-// 이미지, 카테고리, 설명, 무게, 가격, 유통기한
