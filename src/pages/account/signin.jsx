@@ -27,6 +27,7 @@ function SigninPage() {
             // 로그인 성공 시 처리 (예: 메인 페이지로 이동)
             // navigate('/main') 또는 window.location.href = '/main'
             alert("로그인 성공!");
+            navigate('/');
             
         } catch (error) {
             console.error("로그인 실패:", error.message);
@@ -34,10 +35,6 @@ function SigninPage() {
         } finally {
             setIsLoading(false);
         }
-    }
-
-    const handleClick = () => {
-        navigate('/');
     }
 
     return ( 
@@ -59,11 +56,6 @@ function SigninPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     />
-                <SignButton
-                    onClick={handleClick}
-                >로그인</SignButton>
-                    disabled={isLoading}
-                />
                 <SignButton disabled={isLoading}>
                     {isLoading ? "로그인 중..." : "로그인"}
                 </SignButton>

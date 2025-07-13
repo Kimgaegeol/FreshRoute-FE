@@ -18,7 +18,6 @@ function FarmerSignupPage() {
     // 버튼 이동
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
@@ -117,11 +116,6 @@ function FarmerSignupPage() {
                     onChange={(e) => setFarmAddress(e.target.value)}
                     required
                     />
-                <SignButton
-                    handleClick={handleClick}
-                >회원가입</SignButton>
-                    disabled={isLoading}
-                />
                 <SignButton disabled={isLoading}>
                     {isLoading ? "회원가입 중..." : "회원가입"}
                 </SignButton>

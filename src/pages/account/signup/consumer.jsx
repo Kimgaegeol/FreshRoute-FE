@@ -15,8 +15,6 @@ function ConsumerSignupPage() {
 
     // 버튼 이동
     const navigate = useNavigate();
-
-    const handleSubmit = (e) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("▶ handleSubmit 호출", { id, email });
@@ -40,6 +38,7 @@ function ConsumerSignupPage() {
             // 회원가입 성공 시 처리 (예: 로그인 페이지로 이동)
             // navigate('/signin') 또는 window.location.href = '/signin'
             alert("회원가입 성공!");
+            navigate('/account/signin');
             
         } catch (error) {
             console.error("회원가입 실패:", error.message);
@@ -47,10 +46,6 @@ function ConsumerSignupPage() {
         } finally {
             setIsLoading(false);
         }
-    }
-
-    const handleClick = () => {
-        navigate('/account/signin');
     }
 
     return ( 
@@ -96,11 +91,6 @@ function ConsumerSignupPage() {
                     onChange={(e) => setNumber(e.target.value)}
                     required
                     />
-                <SignButton
-                    onClick={handleClick}    
-                >회원가입</SignButton>
-                    disabled={isLoading}
-                />
                 <SignButton disabled={isLoading}>
                     {isLoading ? "회원가입 중..." : "회원가입"}
                 </SignButton>

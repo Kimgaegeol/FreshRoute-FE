@@ -7,8 +7,8 @@ import { useState } from "react";
 function FarmerMyIndexPage() {
     const [selectedNav, setselectedNav] = useState('');
     return ( 
-        <div>
-            <MainLayout>
+        <MainLayout>
+            <div className="flex">
                 <Nav>
                     <NavButton
                         onClick={() => setselectedNav("farmerIndex")}
@@ -33,11 +33,11 @@ function FarmerMyIndexPage() {
                     <NavButton
                         onClick={() => setselectedNav("Fertilizer")}
                         isSelected={selectedNav === "Fertilizer"}
-                        >비료전환</NavButton>
-                </Nav>
-                 <Outlet />
-            </MainLayout>
-        </div>
+                    >비료전환</NavButton>
+                    </Nav>
+                <Outlet />
+            </div>
+        </MainLayout>
      );
 }
 
