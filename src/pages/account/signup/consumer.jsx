@@ -15,7 +15,6 @@ function ConsumerSignupPage() {
 
     // 버튼 이동
     const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("▶ handleSubmit 호출", { id, email });
@@ -90,6 +89,9 @@ function ConsumerSignupPage() {
                     onChange={(e) => setNumber(e.target.value)}
                     required
                     />
+                <SignButton disabled={isLoading}>
+                    {isLoading ? "회원가입 중..." : "회원가입"}
+                </SignButton>
                 <SignButton
                 >회원가입</SignButton>
             </form>

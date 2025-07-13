@@ -7,8 +7,8 @@ import { useState } from "react";
 function ConsumerMyIndexPage() {
     const [selectedNav, setselectedNav] = useState('');
     return ( 
-        <div>
-            <MainLayout>
+        <MainLayout>
+            <div className="flex gap-10">
                 <Nav>
                     <NavButton 
                         onClick={() => setselectedNav("myIndex")}
@@ -32,8 +32,8 @@ function ConsumerMyIndexPage() {
                     >리뷰관리</NavButton>
                 </Nav>
                 <Outlet />
-            </MainLayout>
-        </div>
+            </div>
+        </MainLayout>
      );
 }
 

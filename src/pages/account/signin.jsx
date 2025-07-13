@@ -25,6 +25,7 @@ function SigninPage() {
             console.log("로그인 성공:", user);
             alert("로그인 성공!");
             navigate('/');
+            
         } catch (error) {
             console.error("로그인 실패:", error.message);
             alert(error.message);
@@ -53,6 +54,8 @@ function SigninPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    />
+                <SignButton disabled={isLoading}>
                     disabled={isLoading}
                 />
 
