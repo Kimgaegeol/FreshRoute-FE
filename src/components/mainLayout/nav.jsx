@@ -25,14 +25,17 @@ function Nav() {
                 <div className="flex gap-20 pl-20 py-4">
                     <NavLink 
                         to={'/'} 
+                        end
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >홈</NavLink>
                     <NavLink 
                         to={'/product'} 
+                        end
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >전체 농산물</NavLink>
                     <NavLink 
                         to={'/eventlist'} 
+                        end
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >이벤트 기획전</NavLink>
                     {/* 테스트용 버튼 */}
@@ -52,11 +55,18 @@ function Nav() {
                     <>
                     {/* 농가일 때 */}
                     <NavLink 
+                        to={'/'}
+                        end
+                        className={({ isActive }) => getNavLinkClass(isActive)}
+                    >홈</NavLink>
+                    <NavLink 
                         to={'/product'} 
+                        end
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >전체 농산물</NavLink>
                     <NavLink 
-                        to={'/eventlist'} 
+                        to={'/eventlist'}
+                        end 
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >이벤트 기획전</NavLink>
                     <NavLink 
@@ -73,14 +83,17 @@ function Nav() {
                     {/* 소비자일 때 */}
                     <NavLink 
                         to={'/'} 
+                        end
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >홈</NavLink>
                     <NavLink 
                         to={'/product'} 
+                        end
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >전체 농산물</NavLink>
                     <NavLink 
-                        to={'/eventlist'} 
+                        to={'/eventlist'}
+                        end
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >이벤트 기획전</NavLink>
                     <NavLink 
@@ -94,9 +107,9 @@ function Nav() {
                     </>
                 )}
                 {/* 테스트용 버튼 */}
-                <button onClick={() => signIn("consumer", "consumer")}>소비자로 변경</button>
-                <button onClick={() => signIn("farmer", "farmer")}>농가로 변경</button>
-                <button onClick={() => logout()}>로그아웃</button>
+                <button className="whitespace-nowrap" onClick={() => signIn("consumer", "consumer")}>소비자로 변경</button>
+                <button className="whitespace-nowrap" onClick={() => signIn("farmer", "farmer")}>농가로 변경</button>
+                <button className="whitespace-nowrap" onClick={() => logout()}>로그아웃</button>
             </div>
             <div className="w-full h-px bg-primary-500 pb-1"></div>
         </div>
