@@ -55,8 +55,6 @@ function SigninPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     />
-
-                {/* 중복된 버튼 제거하고 하나만 남김 */}
                 <SignButton 
                     type="submit"
                     disabled={isLoading}
