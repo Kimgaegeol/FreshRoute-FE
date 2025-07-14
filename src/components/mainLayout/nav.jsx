@@ -39,8 +39,8 @@ function Nav() {
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >이벤트 기획전</NavLink>
                     {/* 테스트용 버튼 */}
-                    {/* <button onClick={() => signIn("consumer", "consumer")}>소비자로그인</button>
-                    <button onClick={() => signIn("farmer", "farmer")}>농가로그인</button> */}
+                    <button onClick={() => signIn("consumer", "consumer")}>소비자로그인</button>
+                    <button onClick={() => signIn("farmer", "farmer")}>농가로그인</button>
                 </div>
                 <div className="w-full h-px bg-primary-500 pb-1"></div>
             </div>
@@ -107,9 +107,9 @@ function Nav() {
                     </>
                 )}
                 {/* 테스트용 버튼 */}
-                {/* <button className="whitespace-nowrap" onClick={() => signIn("consumer", "consumer")}>소비자로 변경</button>
+                <button className="whitespace-nowrap" onClick={() => signIn("consumer", "consumer")}>소비자로 변경</button>
                 <button className="whitespace-nowrap" onClick={() => signIn("farmer", "farmer")}>농가로 변경</button>
-                <button className="whitespace-nowrap" onClick={() => logout()}>로그아웃</button> */}
+                <button className="whitespace-nowrap" onClick={() => logout()}>로그아웃</button>
             </div>
             <div className="w-full h-px bg-primary-500 pb-1"></div>
         </div>

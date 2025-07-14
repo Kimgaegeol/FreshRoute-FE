@@ -33,6 +33,7 @@ function FarmerMyIndexPage() {
                     <NavButton
                         onClick={() => setselectedNav("Fertilizer")}
                         isSelected={selectedNav === "Fertilizer"}
+                        to="/my/farmer/fertilizer-conversion"
                     >비료전환</NavButton>
                     </Nav>
                 <Outlet />
