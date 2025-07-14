@@ -8,7 +8,7 @@ function FarmerMyIndexPage() {
     const [selectedNav, setselectedNav] = useState('');
     return ( 
         <MainLayout>
-            <div className="flex">
+            <div className="flex gap-10 items-start">
                 <Nav>
                     <NavButton
                         onClick={() => setselectedNav("farmerIndex")}

@@ -1,6 +1,6 @@
 function FarmerOrderListPage() {
     return ( 
-        <div className="ml-10 w-full">
+        <div className="w-full">
             <h1 className='text-2xl font-bold'>주문 상세</h1>
             <div className="space-y-6 mt-8 w-full">
                 <p className="font-bold text-xl whitespace-nowrap">25.06.09 (월) 주문</p>

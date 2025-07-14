@@ -4,7 +4,7 @@ function FarmerInquiryDetailPage() {
     const navigate = useNavigate();
 
     return ( 
-        <div className="ml-10 w-full">
+        <div className="w-full">
             <div className="space-y-4">
                 <h1 className='text-2xl font-bold'>문의 상세</h1>
                 <p className='text-2xl font-bold'>25.06.02 (월) 문의</p>

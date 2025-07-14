@@ -8,7 +8,7 @@ function ConsumerMyIndexPage() {
     const [selectedNav, setselectedNav] = useState('');
     return ( 
         <MainLayout>
-            <div className="flex gap-10">
+            <div className="flex gap-10 items-start">
                 <Nav>
                     <NavButton 
                         onClick={() => setselectedNav("myIndex")}
