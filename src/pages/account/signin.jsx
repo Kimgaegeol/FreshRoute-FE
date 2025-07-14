@@ -55,16 +55,12 @@ function SigninPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     />
-                <SignButton disabled={isLoading}>
-                    disabled={isLoading}
-                />
 
                 {/* 중복된 버튼 제거하고 하나만 남김 */}
                 <SignButton 
                     type="submit"
                     disabled={isLoading}
-                >
-                    {isLoading ? "로그인 중..." : "로그인"}
+                >{isLoading ? "로그인 중..." : "로그인"}
                 </SignButton>
             </form>
         </div>

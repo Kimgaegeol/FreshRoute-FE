@@ -116,8 +116,6 @@ function FarmerSignupPage() {
                 <SignButton disabled={isLoading}>
                     {isLoading ? "회원가입 중..." : "회원가입"}
                 </SignButton>
-                <SignButton
-                >회원가입</SignButton>
             </form>
         </div>
      );

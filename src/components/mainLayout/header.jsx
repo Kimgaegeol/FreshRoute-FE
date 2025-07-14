@@ -1,15 +1,47 @@
 import { NavLink } from "react-router";
+import { useContext } from "react";
+import { TestContext } from "../../store/testContext";
 
 function Header() {
+    const { account, logout } = useContext(TestContext);
+
     return (  
         <div>
             {/* 상단 초록색 부분 */}
             <div className="w-full h-10 flex justify-end items-center px-4 gap-3 text-white text-sm bg-primary-500">
-                <div><NavLink to={'/account/signin'}>로그인</NavLink></div>
-                <div className="h-5 border-l bg-white"></div>
-                <div><NavLink to={'/account/signup/consumer'}>소비자 회원가입</NavLink> </div>
-                <div className="h-5 border-l bg-white"></div>
-                <div><NavLink to={'/account/signup/farmer'}>농가 회원가입</NavLink> </div>
+                {account.isLoggedIn ? (
+                    // 로그인된 상태
+                    <>
+                        <div className="text-white">
+                            {account.userID}님 환영합니다!
+                        </div>
+                        <div className="h-5 border-l bg-white"></div>
+                        <button 
+                            className="text-white"
+                            onClick={logout}
+                        >로그아웃</button>
+                    </>
+                ) : (
+                    <>
+                        <div>
+                            <NavLink to={'/account/signin'}>
+                                로그인
+                            </NavLink>
+                        </div>
+                        <div className="h-5 border-l bg-white"></div>
+                        <div>
+                            <NavLink to={'/account/signup/consumer'}>  
+                                소비자 회원가입
+                            </NavLink> 
+                        </div>
+                        <div className="h-5 border-l bg-white"></div>
+                        <div>
+                            <NavLink to={'/account/signup/farmer'}>
+                                농가 회원가입
+                            </NavLink> 
+                        </div>
+                    </>
+                )}
             </div>
 
             {/* 하단 로고 부분 */}
