@@ -13,30 +13,40 @@ function Header() {
                     // 로그인된 상태
                     <>
                         <div className="text-white">
-                            {account.userID}님 환영합니다!
+                            {account.userName}님 환영합니다! {account.isFarmer && "(농가)"}
                         </div>
                         <div className="h-5 border-l bg-white"></div>
                         <button 
-                            className="text-white"
+                            className="text-white hover:text-gray-200 transition-colors"
                             onClick={logout}
+                            NavLink to={'/'}
                         >로그아웃</button>
                     </>
                 ) : (
                     <>
                         <div>
-                            <NavLink to={'/account/signin'}>
+                            <NavLink 
+                                to={'/account/signin'}
+                                className="hover:text-gray-200 transition-colors"
+                            >
                                 로그인
                             </NavLink>
                         </div>
                         <div className="h-5 border-l bg-white"></div>
                         <div>
-                            <NavLink to={'/account/signup/consumer'}>  
+                            <NavLink 
+                                to={'/account/signup/consumer'}
+                                className="hover:text-gray-200 transition-colors"
+                            >  
                                 소비자 회원가입
                             </NavLink> 
                         </div>
                         <div className="h-5 border-l bg-white"></div>
                         <div>
-                            <NavLink to={'/account/signup/farmer'}>
+                            <NavLink 
+                                to={'/account/signup/farmer'}
+                                className="hover:text-gray-200 transition-colors"
+                            >
                                 농가 회원가입
                             </NavLink> 
                         </div>

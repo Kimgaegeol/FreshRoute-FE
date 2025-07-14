@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { TestContext } from "../../store/testContext";
 import { API_BASE_URL } from "../../apis/config";
+import { createOrderEvent } from "../../apis/pay"; // createOrderEvent import 추가
 
 function PayPage() {
     const location = useLocation();
@@ -10,6 +11,7 @@ function PayPage() {
     
     const [orderData, setOrderData] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [isProcessing, setIsProcessing] = useState(false); // 결제 처리 중 상태 추가
 
     // 이미지 URL 생성 함수
     const getImageUrl = (imagePath) => {
@@ -59,9 +61,29 @@ function PayPage() {
         navigate(-1); // 이전 페이지로 돌아가기
     };
 
-    const handlePayment = () => {
-        // 결제 처리 로직 구현
-        alert("결제 기능은 준비 중입니다.");
+    const handlePayment = async () => {
+        if (!orderData || !orderData.product) {
+            alert("주문 정보가 없습니다.");
+            return;
+        }
+
+        setIsProcessing(true);
+        
+        try {
+            // 주문 생성 API 호출
+            const result = await createOrderEvent(orderData.product.idx);
+            
+            // 성공 시 알림 표시
+            alert(`구매가 완료되었습니다!\n\n상품명: ${orderData.product.name}\n수량: ${orderData.quantity}개\n결제금액: ${orderData.finalPrice.toLocaleString()}원`);
+            
+            // 메인 페이지로 이동 (또는 주문 완료 페이지로 이동)
+            navigate('/');
+        } catch (error) {
+            // 에러 처리
+            alert(`구매 실패: ${error.message}`);
+        } finally {
+            setIsProcessing(false);
+        }
     };
 
     if (loading) {
@@ -159,16 +181,22 @@ function PayPage() {
 
             <div className="flex justify-center items-center gap-10 w-4/5 mt-16">
                 <button 
-                    className="w-40 h-12 border border-black rounded-lg hover:bg-gray-100 transition"
+                    className="w-40 h-12 border border-black rounded-lg hover:bg-gray-100 transition disabled:opacity-50"
                     onClick={handleCancel}
+                    disabled={isProcessing}
                 >
                     취소
                 </button>
                 <button 
-                    className="w-40 h-12 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                    className={`w-40 h-12 rounded-lg transition ${
+                        isProcessing 
+                            ? 'bg-gray-400 text-gray-200 cursor-not-allowed' 
+                            : 'bg-blue-600 text-white hover:bg-blue-700'
+                    }`}
                     onClick={handlePayment}
+                    disabled={isProcessing}
                 >
-                    결제하기
+                    {isProcessing ? '처리 중...' : '결제하기'}
                 </button>
             </div>
         </div>
