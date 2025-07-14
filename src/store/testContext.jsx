@@ -17,7 +17,7 @@ function TestContextWrapper({children}){
         });
     };
 
-    const logout = (userID, userType) => {
+    const logout = () => {
         setAccount({
             userID: "",
             userType: "",
@@ -26,7 +26,14 @@ function TestContextWrapper({children}){
     };
 
     return (
-        <TestContext.Provider value={{account, signIn, logout}}>
+        <TestContext.Provider value={{
+            account, 
+            signIn, 
+            logout,
+            isLoggedIn: account.isLoggedIn,  // 직접 접근 가능하도록 추가
+            userID: account.userID,          // 직접 접근 가능하도록 추가
+            userType: account.userType       // 직접 접근 가능하도록 추가
+        }}>
             {children}
         </TestContext.Provider>
     )

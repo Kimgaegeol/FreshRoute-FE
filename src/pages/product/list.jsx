@@ -53,7 +53,7 @@ function ProductListPage() {
 
     // 상품 상세 페이지로 이동
     const handleProductDetail = (productId) => {
-        navigate(`./detail?id=${productId}`);
+        navigate(`/product/${productId}`);
     };
 
     // 카테고리 선택 핸들러
