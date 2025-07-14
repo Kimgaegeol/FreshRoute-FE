@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router";
+
 function ConsumerInquiryWritePage() {
+    const navigate = useNavigate();
+
     return ( 
         <div className="flex flex-col justify-start gap-5 w-full">
             <h1 className='text-2xl font-bold pb-5'>문의하기</h1>
@@ -21,8 +25,11 @@ function ConsumerInquiryWritePage() {
                 <textarea className="border border-black w-full h-96 resize-none"></textarea>
             </div>
             <div className="flex gap-4 justify-center">
-                <button className="w-36 h-10 border border-black rounded-lg">취소</button>
-                <button className="w-36 h-10 border border-black rounded-lg">문의하기</button>
+                <button 
+                    onClick={() => navigate('/my/consumer/buy/list')}
+                    className="w-40 h-12 border border-black rounded-lg"
+                >취소</button>
+                <button className="w-40 h-12 border border-black rounded-lg">문의하기</button>
             </div>
         </div>
      );

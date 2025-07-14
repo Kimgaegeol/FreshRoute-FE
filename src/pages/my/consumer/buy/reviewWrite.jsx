@@ -50,8 +50,8 @@ function ConsumerReviewWritePage() {
             </div>
             <div className="bg-black w-full h-0.5"></div>
             <div className="flex gap-4 justify-center">
-                <button className="w-36 h-10 border border-black rounded-lg">취소</button>
-                <button className="w-36 h-10 border border-black rounded-lg">등록하기</button>
+                {/* <button className="w-36 h-10 border border-black rounded-lg">취소</button> */}
+                <button className="w-40 h-12 border border-black rounded-lg">등록하기</button>
             </div>
         </div>
      );
