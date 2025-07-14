@@ -1,15 +1,10 @@
 import { NavLink } from "react-router";
 import { useContext } from "react";
 import { TestContext } from '../../store/testContext';
-import { useState } from "react";
 
 function Nav() {
     const { account } = useContext(TestContext);
-    const isFarmer = account.userType === 'farmer';
-    const [selectNav, setSelectNav] = useState("");
-
-    // 테스트용
-    const { signIn, logout } = useContext(TestContext);
+    const isFarmer = account.isFarmer; // userType 대신 isFarmer 사용
 
     // 공통 스타일 함수
     const getNavLinkClass = (isActive) => 
@@ -38,9 +33,6 @@ function Nav() {
                         end
                         className={({ isActive }) => getNavLinkClass(isActive)}
                     >이벤트 기획전</NavLink>
-                    {/* 테스트용 버튼 */}
-                    {/* <button onClick={() => signIn("consumer", "consumer")}>소비자로그인</button>
-                    <button onClick={() => signIn("farmer", "farmer")}>농가로그인</button> */}
                 </div>
                 <div className="w-full h-px bg-primary-500 pb-1"></div>
             </div>
@@ -106,10 +98,6 @@ function Nav() {
                     >마이페이지</NavLink>
                     </>
                 )}
-                {/* 테스트용 버튼 */}
-                {/* <button className="whitespace-nowrap" onClick={() => signIn("consumer", "consumer")}>소비자로 변경</button>
-                <button className="whitespace-nowrap" onClick={() => signIn("farmer", "farmer")}>농가로 변경</button>
-                <button className="whitespace-nowrap" onClick={() => logout()}>로그아웃</button> */}
             </div>
             <div className="w-full h-px bg-primary-500 pb-1"></div>
         </div>

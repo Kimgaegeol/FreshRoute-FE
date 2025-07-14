@@ -25,11 +25,16 @@ function SigninPage() {
         setIsLoading(true);
         
         try {
-            const user = await signInEvent({ id, pw: password });
-            console.log("로그인 성공:", user);
+            // signInEvent는 백엔드 응답의 user 객체를 반환해야 함
+            const userData = await signInEvent({ id, pw: password });
+            console.log("로그인 성공:", userData);
 
-            // API 응답으로 받은 사용자 정보로 Context 상태 업데이트
-            signIn(user.id || id, user.userType || user.type || 'consumer');
+            // 백엔드에서 받은 user 객체를 그대로 전달
+            // userData가 이미 user 객체 형태라면
+            signIn(userData);
+            
+            // 만약 signInEvent가 response 전체를 반환한다면
+            // signIn(userData.user);
 
             alert("로그인 성공!");
             navigate('/');
@@ -62,7 +67,8 @@ function SigninPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    />
+                    disabled={isLoading}
+                />
                 <SignButton 
                     type="submit"
                     disabled={isLoading}

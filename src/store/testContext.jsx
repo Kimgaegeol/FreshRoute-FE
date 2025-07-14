@@ -4,23 +4,36 @@ export const TestContext = createContext();
 
 function TestContextWrapper({children}){
     const [account, setAccount] = useState({
+        idx: null,
         userID: "",
-        userType: "",
+        userName: "",
+        email: "",
+        phone: "",
+        isFarmer: false,
         isLoggedIn: false
     })
 
-    const signIn = (userID, userType) => {
+    const signIn = (userData) => {
+        // 백엔드에서 받은 user 객체를 그대로 사용
         setAccount({
-            userID: userID,
-            userType: userType,
+            idx: userData.idx,
+            userID: userData.id,
+            userName: userData.name,
+            email: userData.email,
+            phone: userData.phone,
+            isFarmer: userData.is_farmer,
             isLoggedIn: true
         });
     };
 
     const logout = () => {
         setAccount({
+            idx: null,
             userID: "",
-            userType: "",
+            userName: "",
+            email: "",
+            phone: "",
+            isFarmer: false,
             isLoggedIn: false
         });
     };
@@ -32,7 +45,8 @@ function TestContextWrapper({children}){
             logout,
             isLoggedIn: account.isLoggedIn,  // 직접 접근 가능하도록 추가
             userID: account.userID,          // 직접 접근 가능하도록 추가
-            userType: account.userType       // 직접 접근 가능하도록 추가
+            userName: account.userName,      // 직접 접근 가능하도록 추가
+            isFarmer: account.isFarmer      // 직접 접근 가능하도록 추가
         }}>
             {children}
         </TestContext.Provider>

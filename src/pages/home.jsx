@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { getRandomProductsEvent } from "../apis/home";
 import { API_BASE_URL } from "../apis/config";
 import MainLayout from "../layouts/main";
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 
 function HomePage() {
+    const navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -42,6 +43,11 @@ function HomePage() {
         return Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
     };
 
+    // 상품 상세 페이지로 이동
+    const handleProductDetail = (productId) => {
+        navigate(`/product/${productId}`);
+    };
+
     return (
         <div>
             <MainLayout>
@@ -70,6 +76,7 @@ function HomePage() {
                                             key={product.idx} 
                                             className="flex-shrink-0 bg-white rounded-lg border border-gray-200 p-4 hover:shadow-md transition-shadow cursor-pointer"
                                             style={{ minWidth: '180px' }}
+                                            onClick={() => handleProductDetail(product.idx)}
                                         >
                                             {/* 순서 번호 */}
                                             <div className="text-sm font-bold text-gray-600 mb-2">
@@ -131,7 +138,10 @@ function HomePage() {
 
                     {/* 상품 더보기 버튼 */}
                     <div className="text-center">
-                        <button className="text-green-600 hover:text-green-700 text-sm font-medium">
+                        <button 
+                            className="text-green-600 hover:text-green-700 text-sm font-medium"
+                            onClick={() => navigate('/products')}
+                        >
                             상품 더보기
                         </button>
                     </div>
