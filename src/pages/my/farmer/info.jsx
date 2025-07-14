@@ -122,13 +122,11 @@ function FarmerMyInfoPage() {
             <div className="flex justify-center gap-4">
                 <button 
                     className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                    onClick={() => navigate('/my/farmer/edit')}
                 >
                     정보 수정
                 </button>
                 <button 
                     className="px-6 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-                    onClick={() => navigate('/my/farmer/products')}
                 >
                     내 상품 관리
                 </button>

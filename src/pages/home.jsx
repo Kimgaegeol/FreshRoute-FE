@@ -140,7 +140,6 @@ function HomePage() {
                     <div className="text-center">
                         <button 
                             className="text-green-600 hover:text-green-700 text-sm font-medium"
-                            onClick={() => navigate('/products')}
                         >
                             상품 더보기
                         </button>

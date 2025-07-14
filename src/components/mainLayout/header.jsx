@@ -19,6 +19,7 @@ function Header() {
                         <button 
                             className="text-white hover:text-gray-200 transition-colors"
                             onClick={logout}
+                            NavLink to={'/'}
                         >로그아웃</button>
                     </>
                 ) : (
