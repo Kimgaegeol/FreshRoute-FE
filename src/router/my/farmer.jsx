@@ -9,6 +9,7 @@ const FarmerInfoPage = lazy(() => import("../../pages/my/farmer/info"))
 const FarmerOrderListPage = lazy(() => import("../../pages/my/farmer/orderList"))
 const FarmerSaleListPage = lazy(() => import("../../pages/my/farmer/saleList"))
 const FertilizerConversionPage = lazy(() => import("../../pages/my/farmer/fertilizerConversion"))
+const FertilizerConversionAlarmPage = lazy(() => import("../../pages/my/farmer/fertilizerConversionAlarm"))
 
 function farmerMyRouter() {
     return ( 
@@ -37,11 +38,15 @@ function farmerMyRouter() {
                     element: <Suspense><FarmerInquiryListPage/></Suspense>
                 },
                 {
-                    path: "inquiry/:ino",
-                    element: <Suspense><FarmerInquiryDetailPage/></Suspense>
+                    path: "fertilizer-conversion",
+                    element: <Suspense><FertilizerConversionPage/></Suspense>
                 },
                 {
-                    path: "fertilizer-conversion",
+                    path: "fertilizer-conversion/alarm/:id",
+                    element: <Suspense><FertilizerConversionAlarmPage/></Suspense>
+                },
+                {
+                    path: "inquiry/:ino",
                     element: <Suspense><FarmerInquiryDetailPage/></Suspense>
                 }
             ]
