@@ -1,4 +1,4 @@
-import CategoryButton from '../../components/home/categoryButton';
+import CategoryButton from "../../components/productCategory/categoryButton";
 import { useState } from "react";
 
 function ProductListPage() {
