@@ -1,4 +1,10 @@
 import axios from "axios";
+import { API_BASE_URL } from "./config";
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true,
+});
 
 // 상품 등록
 export async function createProductEvent({ 
@@ -10,12 +16,19 @@ export async function createProductEvent({
   expiration, 
   image 
 }) {
-  if (!category_idx || !name || !explain || !weight || !price || !expiration || !image) {
+  if (
+    !category_idx ||
+    !name ||
+    !explain ||
+    !weight ||
+    !price ||
+    !expiration ||
+    !image
+  ) {
     throw new Error("모든 필드를 입력해주세요.");
   }
 
   try {
-    // FormData 생성
     const formData = new FormData();
     formData.append("category_idx", category_idx);
     formData.append("name", name);
@@ -25,24 +38,18 @@ export async function createProductEvent({
     formData.append("expiration", expiration);
     formData.append("image", image);
 
-    const { data } = await axios.post(
-      "http://localhost:3000/sale",
-      formData,
-      {
-        withCredentials: true,
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+    const { data } = await api.post("/sale", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
 
     if (data.success) {
       return data.product;
-    } else {
-      throw new Error(data.message);
     }
+    throw new Error(data.message);
   } catch (err) {
-    if (err.response && err.response.data && err.response.data.message) {
+    if (err.response?.data?.message) {
       throw new Error(err.response.data.message);
     }
     throw new Error(err.message || "상품 등록에 실패했습니다.");
