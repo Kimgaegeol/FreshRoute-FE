@@ -58,8 +58,7 @@ function SigninPage() {
                 <SignButton 
                     type="submit"
                     disabled={isLoading}
-                >
-                    {isLoading ? "로그인 중..." : "로그인"}
+                >{isLoading ? "로그인 중..." : "로그인"}
                 </SignButton>
             </form>
         </div>

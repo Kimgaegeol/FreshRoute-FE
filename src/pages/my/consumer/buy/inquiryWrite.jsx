@@ -14,11 +14,11 @@ function ConsumerInquiryWritePage() {
             </div>
             <div className="flex gap-10">
                 <h2 className='text-xl font-medium pb-5 whitespace-nowrap'>문의제목</h2>
-                <input className="border border-black w-4/5 h-12"></input>
+                <input className="border border-black w-full h-12"></input>
             </div>
             <div className="flex gap-10">
                 <h2 className='text-xl font-medium pb-5 whitespace-nowrap'>문의내용</h2>
-                <textarea className="border border-black w-4/5 h-96 resize-none"></textarea>
+                <textarea className="border border-black w-full h-96 resize-none"></textarea>
             </div>
             <div className="flex gap-4 justify-center">
                 <button className="w-36 h-10 border border-black rounded-lg">취소</button>

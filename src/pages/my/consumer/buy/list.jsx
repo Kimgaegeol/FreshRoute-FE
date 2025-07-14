@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Date from '../../../../components/buyList/Date';
+import Date from '../../../../components/buyList/data';
 import Product from '../../../../components/buyList/product';
 
 function ConsumerBuyListPage() {
