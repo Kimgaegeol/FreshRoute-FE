@@ -1,14 +1,18 @@
 import SignInput from '../../components/sign/signInput'
 import SignButton from '../../components/sign/signButton'
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from 'react-router';
 import { signInEvent } from '../../apis/account'
+import { TestContext } from '../../store/testContext';
 
 function SigninPage() {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
+
+    // TestContext에서 signIn 가져오기
+    const { signIn } = useContext(TestContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,6 +27,10 @@ function SigninPage() {
         try {
             const user = await signInEvent({ id, pw: password });
             console.log("로그인 성공:", user);
+
+            // API 응답으로 받은 사용자 정보로 Context 상태 업데이트
+            signIn(user.id || id, user.userType || user.type || 'consumer');
+
             alert("로그인 성공!");
             navigate('/');
             
@@ -58,8 +66,7 @@ function SigninPage() {
                 <SignButton 
                     type="submit"
                     disabled={isLoading}
-                >
-                    {isLoading ? "로그인 중..." : "로그인"}
+                >{isLoading ? "로그인 중..." : "로그인"}
                 </SignButton>
             </form>
         </div>
