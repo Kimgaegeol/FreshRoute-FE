@@ -6,7 +6,7 @@ function ConsumerBuyListPage() {
     const [selectedDate, setselectedDate] = useState('');
 
     return ( 
-        <div className="flex flex-col justify-start">
+        <div className="flex flex-col justify-start w-full">
             <h1 className='text-2xl font-bold pb-5'>구매목록</h1>
             <div className="flex whitespace-nowrap">
                 <Date 
