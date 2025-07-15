@@ -38,7 +38,7 @@ export async function createProductEvent({
     formData.append("expiration", expiration);
     formData.append("image", image);
 
-    const { data } = await api.post("/sale", formData, {
+    const { data } = await api.post("/backend/sale", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

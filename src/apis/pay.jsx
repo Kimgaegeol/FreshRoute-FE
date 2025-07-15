@@ -1,4 +1,10 @@
 import axios from "axios";
+import { API_BASE_URL } from "./config";
+
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true,
+});
 
 // 주문 생성 (결제 처리)
 export async function createOrderEvent(production_idx) {
@@ -7,12 +13,9 @@ export async function createOrderEvent(production_idx) {
   }
 
   try {
-    const { data } = await axios.post(
-      "http://localhost:3000/pay",
-      { production_idx },
-      {
-        withCredentials: true,
-      }
+    const { data } = await api.post(
+      "/backend/pay",
+      { production_idx }
     );
 
     if (data.success) {
@@ -21,7 +24,7 @@ export async function createOrderEvent(production_idx) {
       throw new Error(data.message);
     }
   } catch (err) {
-    if (err.response && err.response.data && err.response.data.message) {
+    if (err.response?.data?.message) {
       throw new Error(err.response.data.message);
     }
     throw new Error(err.message || "주문 생성에 실패했습니다.");

@@ -9,7 +9,7 @@ const api = axios.create({
 // 비료 생산업체 목록 조회
 export async function getFertilizerProducersEvent() {
   try {
-    const { data } = await api.get("/api/fertilizer-producers");
+    const { data } = await api.get("/backend/api/fertilizer-producers");
     if (data.success) {
       return data.data; // 백엔드에서 data 필드에 배열을 담아서 보냄
     }

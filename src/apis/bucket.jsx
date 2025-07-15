@@ -13,7 +13,7 @@ export async function addToBucketEvent(production_idx) {
   }
 
   try {
-    const { data } = await api.post("/bucket", { production_idx });
+    const { data } = await api.post("/backend/bucket", { production_idx });
     if (data.success) {
       return data.bucket;
     }
@@ -31,7 +31,7 @@ export async function removeFromBucketEvent(bucket_idx) {
   }
 
   try {
-    const { data } = await api.delete(`/bucket/${bucket_idx}`);
+    const { data } = await api.delete(`/backend/bucket/${bucket_idx}`);
     if (data.success) {
       return data.deleted_bucket_idx;
     }
@@ -45,7 +45,7 @@ export async function removeFromBucketEvent(bucket_idx) {
 // 장바구니 목록 조회
 export async function getBucketListEvent() {
   try {
-    const { data } = await api.get("/bucket/list");
+    const { data } = await api.get("/backend/bucket/list");
     if (data.success) {
       return data.buckets;
     }

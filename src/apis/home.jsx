@@ -8,7 +8,7 @@ const api = axios.create({
 
 export async function getRandomProductsEvent() {
   try {
-    const { data } = await api.get("/home");
+    const { data } = await api.get("/backend/home");
     // 백엔드에서 { products: [...] } 형태로 반환
     return data.products;
   } catch (err) {

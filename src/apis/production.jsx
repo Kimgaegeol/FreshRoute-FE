@@ -9,7 +9,7 @@ const api = axios.create({
 // 전체 카테고리 목록 조회
 export async function getCategoriesEvent() {
   try {
-    const { data } = await api.get("/production/category");
+    const { data } = await api.get("/backend/production/category");
     if (data.success) {
       return data.categories;
     }
@@ -24,8 +24,8 @@ export async function getCategoriesEvent() {
 export async function getProductsEvent(category_idx = null) {
   try {
     const endpoint = category_idx
-      ? `/production/list?category_idx=${category_idx}`
-      : `/production/list`;
+      ? `/backend/production/list?category_idx=${category_idx}`
+      : `/backend/production/list`;
     const { data } = await api.get(endpoint);
     if (data.success) {
       return data.products;
@@ -43,7 +43,7 @@ export async function getProductDetailEvent(productId) {
     throw new Error("상품 ID를 입력해주세요.");
   }
   try {
-    const { data } = await api.get(`/production/${productId}`);
+    const { data } = await api.get(`/backend/production/${productId}`);
     if (data.success) {
       return data.product;
     }
